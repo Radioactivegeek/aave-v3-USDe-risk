@@ -1,0 +1,90 @@
+[
+  {
+    "date": "2026-08-07",
+    "network": "Aave V3 Monad",
+    "target_asset": "USDe",
+    "parameter": "Supply Cap",
+    "old_value": 40000000,
+    "new_value": 80000000,
+    "utilization_pre": "100.0%",
+    "utilization_post": "~50.0%",
+    "rationale": "Fully subscribed at 100% utilization; cap raised to accommodate incoming supply."
+  },
+  {
+    "date": "2026-08-07",
+    "network": "Aave V3 Monad",
+    "target_asset": "sUSDe",
+    "parameter": "Supply Cap",
+    "old_value": 40000000,
+    "new_value": 10000000,
+    "utilization_pre": "0.4%",
+    "utilization_post": "~1.5%",
+    "rationale": "Severely underutilized at 0.4%; cap reduced to mitigate idle tail exposure."
+  },
+  {
+    "date": "2026-08-10",
+    "network": "Aave V3 Plasma",
+    "target_asset": "sUSDe",
+    "parameter": "Supply Cap",
+    "old_value": 450000000,
+    "new_value": 225000000,
+    "utilization_pre": "34.8%",
+    "utilization_post": "~69.6%",
+    "rationale": "Low supply utilization (34.8%); cap trimmed to right-size headroom."
+  },
+  {
+    "date": "2026-08-10",
+    "network": "Aave V3 Plasma",
+    "target_asset": "USDe",
+    "parameter": "Supply Cap",
+    "old_value": 475000000,
+    "new_value": 375000000,
+    "utilization_pre": "57.3%",
+    "utilization_post": "~72.6%",
+    "rationale": "Low supply utilization (57.3%); cap reduced to reduce tail exposure."
+  },
+  {
+    "date": "2026-08-10",
+    "network": "Aave V3 Plasma",
+    "target_asset": "USDe",
+    "parameter": "Borrow Cap",
+    "old_value": 425000000,
+    "new_value": 335000000,
+    "utilization_pre": "47.3%",
+    "utilization_post": "~60.1%",
+    "rationale": "Low borrow utilization (47.3%); cap reduced to prevent unhedged short carry exposure."
+  },
+  {
+    "date": "2026-08-10",
+    "network": "Aave V3 Mantle",
+    "target_asset": "sUSDe",
+    "parameter": "Supply Cap",
+    "old_value": 125000000,
+    "new_value": 75000000,
+    "utilization_pre": "34.8%",
+    "utilization_post": "~58.1%",
+    "rationale": "Low supply utilization (34.8%); cap pruned to match local pool demand."
+  },
+  {
+    "date": "2026-09-22",
+    "network": "Aave V3 Plasma",
+    "target_asset": "USDe",
+    "parameter": "Supply Cap",
+    "old_value": 550000000,
+    "new_value": 750000000,
+    "utilization_pre": "100.0%",
+    "utilization_post": "~73.3%",
+    "rationale": "Fully subscribed at 100% capacity due to high looping demand; cap raised by 1.36x current supply."
+  },
+  {
+    "date": "2026-09-22",
+    "network": "Aave V3 Core",
+    "target_asset": "USDe",
+    "parameter": "Borrow Cap",
+    "old_value": 700000000,
+    "new_value": 100000000,
+    "utilization_pre": "11.1%",
+    "utilization_post": "~77.9%",
+    "rationale": "Severely underutilized borrow demand on Mainnet Core (11.1%); cap slashed to prevent idle flash-loan borrow attacks."
+  }
+]
