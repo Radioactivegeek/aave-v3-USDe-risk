@@ -133,8 +133,6 @@ pip install -r requirements.txt
 
 ---
 
-## 📌 Key Solvency Conclusions
+### Author & Methodology Notes
 
-1. **USDe is used for collateral, not borrowing on Mainnet:** Core borrow utilization stayed at ~11%, while supply on Plasma hit 100%. Users deposit USDe to borrow USDT/USDC or loop yields on L2s.
-2. **Loopers run on thin margins:** Typical health factors sit around **1.10 - 1.25**. A drop of only 15% to 20% in collateral value begins triggering liquidations.
-3. **Aggregated oracles are mandatory:** With secondary AMM depth at only $86M, decentralized lending platforms must rely on multi-venue aggregated oracles to survive isolated exchange order-book flash wicks.
+Designed as a quantitative risk case study and production toolset for protocol risk analysis, monitoring parameter updates, and evaluating collateral onboarding on Aave V3.
