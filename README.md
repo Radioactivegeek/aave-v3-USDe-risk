@@ -5,7 +5,7 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-An institutional-grade risk assessment suite and real-time loan book solvency monitor for Ethena (`USDe` / `sUSDe`) markets across Aave V3 deployments (Ethereum Core, Plasma, and cross-chain instances).
+An institutional grade risk assessment suite and real-time loan book solvency monitor for Ethena (`USDe` / `sUSDe`) markets across Aave V3 deployments (Ethereum Core, Plasma, and cross-chain instances).
 
 Rather than relying on delayed indexers or third-party web dashboards, this engine combines **direct on-chain JSON-RPC state queries**, **event log decoding**, **econometric inequality modeling (Gini & HHI)**, and **intraday drawdown volatility analysis** to evaluate systemic safety margins around critical governance interventions.
 
@@ -186,19 +186,6 @@ export RPC_URL="https://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY"
 # Windows PowerShell:
 $env:RPC_URL="https://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY"
 ```
-
----
-
-## 7. Protocol Solvency Findings
-
-1. **Borrow Velocity vs. Collateral Utility:**  
-   USDe borrow activity on Ethereum Core is minimal ($11.1\%$ utilization), prompting LlamaRisk to slash the Core borrow cap from $\$700\text{M}$ to $\$100\text{M}$. USDe functions primarily as **collateral to borrow stables (USDT/USDC)** on Core, while borrow demand is concentrated on Layer 2s / Plasma.
-
-2. **Looping Liquidation Buffers:**  
-   Institutional loopers carry multi-million dollar debts with Health Factors hovering tightly between $1.08$ and $1.25$. An account at $H_f = 1.2377$ faces liquidation on a collateral drawdown of just **$19.2\%$**.
-
-3. **Oracle Decoupling Safeguards:**  
-   Secondary AMM exit liquidity ($\sim \$86\text{M}$) is insufficient to absorb a liquidation cascade from top holders. Stablecoin lending safety on Aave relies directly on multi-source aggregated oracles with latency thresholds rather than raw CEX order-book feeds.
 
 ---
 
