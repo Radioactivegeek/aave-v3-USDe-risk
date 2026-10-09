@@ -18,6 +18,7 @@ Instead of relying on delayed dashboards, this engine queries Ethereum RPC nodes
 3. **Thin DEX Liquidity:** While tradable float is ~$430M, total secondary DEX exit liquidity (Uniswap + Curve) is only **~$86M**. A massive liquidation cannot exit via AMMs without severe slippage.
 4. **Oracle Filtered the Flash Crash:** When Binance spot briefly wicked down to **$0.9202** on Sep 22, 2026, Aave's Chainlink aggregator held above **$0.9970**, saving healthy borrowers from unfair liquidations.
 5. **The Bad-Debt Liquidity Cliff:** In a 3%–5% USDe depeg shock, $40.3M–$80.7M of looped collateral becomes liquidatable. However, aggregated secondary DEX exit depth can only absorb **~$4.5M–$4.7M** before exceeding 5% price impact, exposing Aave to an uncovered bad-debt gap of up to **$76.2M**.
+6. **Governance Confirmed the Analysis (Oct 8, 2026):** LlamaRisk officially recommended slashing Aave V3 Core's USDe supply cap by **$150M** ($700M → $550M) to remove un-hedgeable headroom, matching our exact quantitative diagnosis.
 
 ---
 
@@ -92,6 +93,17 @@ Measuring executable market depth at specific price impact tiers using real-time
 
 ---
 
+### 6. Real-World Risk Steward Validation (Oct 8, 2026)
+LlamaRisk officially recommended slashing the Aave V3 Core USDe supply cap by **$150M** ($700M → $550M), directly confirming our liquidity cliff findings:
+
+![LlamaRisk Aave V3 USDe Cap Reduction](assets/llamarisk_cap_cut_validation.png)
+
+* **$150M Cap Slash:** Reduced Core USDe supply cap from $700M to $550M, aligning the ceiling with actual deposits (~$538M) and eliminating dangerous unbacked looping headroom.
+* **Driven by Secondary Liquidity Limits:** Validates our stress test finding that secondary AMM exit depth (~$4.5M) cannot absorb whale liquidations under high supply caps.
+* **Monad Segregation:** Ring-fenced high deposit demand on the isolated Monad deployment (increased cap by $50M due to 89.8% utilization), strictly quarantined away from Mainnet liquidity.
+
+---
+
 ## 🔎 Verified Parameters & Contract Addresses
 
 | Layer | Parameter / Target | Verified Value | Context |
@@ -100,6 +112,7 @@ Measuring executable market depth at specific price impact tiers using real-time
 | **Governance** | Plasma sUSDe Supply Cap (Aug 10) | $450M → $225M | Cut due to 34.8% low utilization |
 | **Governance** | Plasma USDe Supply Cap (Sep 22) | $550M → $750M | Emergency boost (100% capacity hit) |
 | **Governance** | Core USDe Borrow Cap (Sep 22) | $700M → $100M | Slashed (borrowers use Plasma, not Core) |
+| **Governance** | Core USDe Supply Cap (Oct 8) | $700M → $550M | Slashed by $150M following liquidity review |
 | **On-Chain Contract** | Aave V3 Pool Proxy | `0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2` | Ethereum Mainnet |
 | **On-Chain Contract** | Ethena USDe Token | `0x4c9edd5852cd905f086c759e8383e09bff1e68b3` | ERC-20 contract |
 | **Price / Oracle** | Binance Spot Low (Sep 22) | $0.9202 | 1-min order book tick |
@@ -172,6 +185,7 @@ pip install -r requirements.txt
 ```text
 ├── assets/                          # Generated charts, stress test visuals & risk reports
 │   ├── aave_plasma_usde_caps.png
+│   ├── llamarisk_cap_cut_validation.png # Risk steward governance validation
 │   ├── usde_advanced_concentration_lorenz.png
 │   ├── usde_bad_debt_test.png       # Bad-debt vs. DEX depth stress test visual
 │   ├── usde_holder_concentration.png
