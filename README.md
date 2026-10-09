@@ -94,7 +94,7 @@ Measuring executable market depth at specific price impact tiers using real-time
 ---
 
 ### 6. Real-World Risk Steward Validation (Oct 8, 2026)
-LlamaRisk officially recommended slashing the Aave V3 Core USDe supply cap by **$150M** ($700M → $550M), directly confirming our liquidity cliff findings:
+LlamaRisk officially recommended slashing the Aave V3 Core USDe supply cap by **$150M** ($700M → $550M), directly confirming our liquidity difference findings:
 
 ![LlamaRisk Aave V3 USDe Cap Reduction](assets/llamarisk_cap_cut_validation.png)
 
